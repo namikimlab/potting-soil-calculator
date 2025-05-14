@@ -8,6 +8,7 @@ type ResultData = {
   recommendation: string;
 };
 
+
 function App() {
   const [result, setResult] = useState<ResultData | null>(null);
 
@@ -31,23 +32,25 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-green-50 px-4 py-8 flex flex-col items-center">
-      <h1 className="text-3xl font-bold text-green-900 mb-6 tracking-tight">
-        🌱 분갈이 흙 계산기
-      </h1>
+    <div className="h-full bg-green-50 items-center justify-center px-4">
+      <div className="w-full max-w-md">
+        <h1 className="text-3xl font-bold text-green-900 mb-6 text-center">
+          🌱 분갈이 흙 계산기
+        </h1>
   
-      <div className="w-full max-w-md bg-white rounded-xl shadow-md p-6">
-        <InputForm onCalculate={handleCalculate} />
-      </div>
-  
-      {result && (
-        <div className="w-full max-w-md mt-6">
-          <ResultBox
-            volume={result.volume}
-            recommendation={result.recommendation}
-          />
+        <div className="w-full bg-white rounded-xl shadow-md p-6">
+          <InputForm onCalculate={handleCalculate} />
         </div>
-      )}
+  
+        {result && (
+          <div className="w-full mt-6">
+            <ResultBox
+              volume={result.volume}
+              recommendation={result.recommendation}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
