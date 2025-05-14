@@ -32,9 +32,9 @@ function App() {
   };
 
   return (
-    <div className="h-full bg-green-50 items-center justify-center px-4">
+    <div className="h-full items-center justify-center px-4">
       <div className="w-full max-w-md">
-        <h1 className="text-3xl font-bold text-green-900 mb-6 text-center">
+        <h1 className="text-3xl font-bold text-green-900 my-6 text-center">
           🌱 분갈이 흙 계산기
         </h1>
   

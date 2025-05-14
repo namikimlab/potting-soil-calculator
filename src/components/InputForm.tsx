@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import RectangleIcon from "../assets/icons/rectangle.svg?react";
-import CylinderIcon from "../assets/icons/cylinder.svg?react";
-import ConeIcon from "../assets/icons/cone.svg?react";
-import OtherIcon from "../assets/icons/other.svg?react";
+import rectangleImg from "../assets/images/rectangle.webp";
+import cylinderImg from "../assets/images/cylinder.webp";
+import coneImg from "../assets/images/cone.webp";
+import otherImg from "../assets/images/other.webp";
 
 type InputData = {
   shape: string;
@@ -24,19 +24,23 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
   const shapes = [
     {
       label: "사각형",
-      value: "square",
-      icon: <RectangleIcon className="w-8 h-8" />,
+      value: "rectangle",
+      icon: rectangleImg,
     },
     {
-      label: "원기둥",
+      label: "원통형",
       value: "cylinder",
-      icon: <CylinderIcon className="w-8 h-8" />,
+      icon: cylinderImg,
     },
-    { label: "원뿔형", value: "cone", icon: <ConeIcon className="w-8 h-8" /> },
+    {
+      label: "원뿔형",
+      value: "cone",
+      icon: coneImg,
+    },
     {
       label: "기타",
-      value: "ellipse",
-      icon: <OtherIcon className="w-8 h-8" />,
+      value: "other",
+      icon: otherImg,
     },
   ];
 
@@ -56,24 +60,33 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
     <form onSubmit={handleSubmit} className="space-y-4">
       {/* 화분 형태 */}
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
-          화분 모양
+        <label className="block text-lg text-sm mb-1">
+          화분 모양을 골라주세요
         </label>
-        <div className="grid grid-cols-2 gap-2">
+
+        <div className="grid grid-cols-2 gap-3">
           {shapes.map((shapeOption) => (
             <button
               key={shapeOption.value}
               type="button"
               onClick={() => setShape(shapeOption.value)}
-              className={`border p-3 rounded flex flex-col items-center justify-center space-y-1 transition
+              className={`aspect-square w-full border rounded-lg p-2 flex flex-col items-center justify-center transition
           ${
             shape === shapeOption.value
               ? "bg-green-600 text-white border-green-700"
               : "bg-white text-gray-800"
           }`}
             >
-              {shapeOption.icon}
-              <span className="text-sm">{shapeOption.label}</span>
+              <div className="w-14 h-14 flex items-center justify-center">
+                <img
+                  src={shapeOption.icon}
+                  alt={shapeOption.label}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <span className="mt-2 text-sm text-center">
+                {shapeOption.label}
+              </span>
             </button>
           ))}
         </div>
