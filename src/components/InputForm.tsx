@@ -77,6 +77,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
                     ? "border-amber-500"
                     : "border-transparent"
                 }
+                  bg-amber-50
                   focus:outline-none focus:ring-0
               `}
             >
