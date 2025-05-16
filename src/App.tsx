@@ -19,16 +19,16 @@ function App() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="w-full max-w-md">
-        <h1 className="text-3xl font-bold text-green-900 mt-6 text-center">
+        <h1 className="text-3xl font-bold text-green-900 my-6 text-center">
           🌱 분갈이 흙 계산기
         </h1>
   
-        <div className="w-full rounded-xl shadow-md p-6">
+        <div className="w-full rounded-xl shadow-md ">
           <InputForm onCalculate={handleCalculate} />
         </div>
   
         {result && (
-          <div className="w-full mt-6">
+          <div className="w-full">
             <ResultBox
               volume={result.volume}
               recommendation={result.recommendation}
