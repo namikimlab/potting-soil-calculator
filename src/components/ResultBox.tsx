@@ -1,5 +1,6 @@
 type ResultBoxProps = {
   volume: number;
+  recommendation: string;
 };
 
 const ResultBox: React.FC<ResultBoxProps> = ({ volume}) => {
