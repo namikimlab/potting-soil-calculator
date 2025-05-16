@@ -5,7 +5,7 @@ type ResultBoxProps = {
   
   const ResultBox: React.FC<ResultBoxProps> = ({ volume, recommendation }) => {
     return (
-      <div className="mt-6 bg-white p-6 rounded-2xl shadow-md w-full max-w-md text-gray-800 space-y-4">
+      <div className="my-4 bg-amber-300 p-6 rounded-2xl shadow-md w-full max-w-md text-gray-800 space-y-4">
         <h2 className="text-xl font-semibold">계산 결과</h2>
   
         <div className="flex justify-between">

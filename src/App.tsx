@@ -1,29 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import InputForm from "./components/InputForm";
 import ResultBox from "./components/ResultBox";
 import { calculateSoilVolume } from "./utils/calculator";
-
-type ResultData = {
-  volume: number;
-  recommendation: string;
-};
-
+import type { InputData, ResultData } from "./types";
 
 function App() {
   const [result, setResult] = useState<ResultData | null>(null);
 
-  const handleCalculate = (input: {
-    shape: string;
-    width: number;
-    height: number;
-    quantity: number;
-  }) => {
-    const volume = calculateSoilVolume(
-      input.shape,
-      input.width,
-      input.height,
-      input.quantity
-    );
+  const handleCalculate = (input: InputData) => {
+    const volume = calculateSoilVolume(input);
 
     const bags = Math.ceil(volume / 10); // 10L 흙 기준
     const recommendation = `10L 흙 ${bags}봉지 추천`;
