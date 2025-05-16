@@ -23,7 +23,7 @@ function App() {
           🌱 분갈이 흙 계산기
         </h1>
   
-        <div className="w-full rounded-xl shadow-md ">
+        <div className="w-full rounded-xl">
           <InputForm onCalculate={handleCalculate} />
         </div>
   
