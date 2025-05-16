@@ -31,7 +31,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
     e.preventDefault();
     console.log("submit!", { shape, width, length, height, diameter, 
       topDiameter, bottomDiameter, surfaceArea, quantity });
-
+      
     switch (shape) {
       case "rectangle":
         if (!width || !length || !height || !quantity) return;

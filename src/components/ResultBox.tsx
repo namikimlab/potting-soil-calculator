@@ -62,27 +62,29 @@ const ResultBox: React.FC<ResultBoxProps> = ({ volume, recommendation }) => {
           </div>
 
           {/* 8L 제품 */}
-          <div className="flex flex-col items-center space-y-1">
-            <a
-              href="https://smartstore.naver.com/changbitfarm/products/6364451019"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="/images/soil_8l.webp"
-                alt="8L 흙"
-                className="w-24 h-24 object-cover rounded shadow"
-              />
-            </a>
-            <a
-              href="https://smartstore.naver.com/changbitfarm/products/6364451019"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm bg-green-600 text-white px-3 py-1 rounded"
-            >
-              구매하기
-            </a>
-          </div>
+          {mixed.includes("8리터") && (
+            <div className="flex flex-col items-center space-y-1">
+              <a
+                href="https://smartstore.naver.com/changbitfarm/products/6364451019"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="/images/soil_8l.webp"
+                  alt="8L 흙"
+                  className="w-24 h-24 object-cover rounded shadow"
+                />
+              </a>
+              <a
+                href="https://smartstore.naver.com/changbitfarm/products/6364451019"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm bg-green-600 text-white px-3 py-1 rounded"
+              >
+                구매하기
+              </a>
+            </div>
+          )}
         </div>
       </div>
 
@@ -96,11 +98,17 @@ const ResultBox: React.FC<ResultBoxProps> = ({ volume, recommendation }) => {
         <p className="text-lg mb-1">추천2: 최고급 소포장 제품</p>
         <p className="text-lg font-bold text-green-800">➡️ {only8L}</p>
         <div className="flex flex-col items-center space-y-1 mt-4">
-          <img
-            src="/images/soil_8l.webp"
-            alt="8L 흙"
-            className="w-24 h-24 object-cover rounded shadow"
-          />
+          <a
+            href="https://smartstore.naver.com/changbitfarm/products/6364451019"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="/images/soil_8l.webp"
+              alt="8L 흙"
+              className="w-24 h-24 object-cover rounded shadow"
+            />
+          </a>
           <a
             href="https://smartstore.naver.com/changbitfarm/products/6364451019"
             target="_blank"
