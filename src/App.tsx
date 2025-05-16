@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-md mb-12">
         <h1 className="text-3xl font-bold text-green-900 my-6 text-center">
           🌱 분갈이 흙 계산기
         </h1>
