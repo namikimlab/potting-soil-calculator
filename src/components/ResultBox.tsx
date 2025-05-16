@@ -1,9 +1,8 @@
 type ResultBoxProps = {
   volume: number;
-  recommendation: string;
 };
 
-const ResultBox: React.FC<ResultBoxProps> = ({ volume, recommendation }) => {
+const ResultBox: React.FC<ResultBoxProps> = ({ volume}) => {
   const getMixedBreakdown = (volume: number): string => {
     const num20L = volume <= 20 ? 1 : Math.floor(volume / 20);
     const remaining = volume - num20L * 20;
