@@ -78,7 +78,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
     <form onSubmit={handleSubmit} className="space-y-4">
       {/* 화분 형태 */}
       <div>
-        <label className="block text-lg font-bold text-gray-700 mb-1">
+        <label className="block font-bold text-gray-700 mb-1">
           화분 모양을 골라주세요
         </label>
 
@@ -121,7 +121,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
       {/* 입력 필드 - shape별 조건부 렌더링 */}
       {shape === "rectangle" && (
         <>
-          <label className="block text-lg font-bold text-gray-700 mb-1">
+          <label className="block font-bold text-gray-700 mb-1">
             가로 (cm)
           </label>
           <input
@@ -131,7 +131,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
             className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
             required
           />
-          <label className="block text-lg font-bold text-gray-700 mb-1 mt-2">
+          <label className="block font-bold text-gray-700 mb-1 mt-2">
             세로 (cm)
           </label>
           <input
@@ -146,7 +146,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
 
       {shape === "cylinder" && (
         <>
-          <label className="block text-lg font-bold text-gray-700 mb-1">
+          <label className="block font-bold text-gray-700 mb-1">
             지름 (cm)
           </label>
           <input
@@ -161,7 +161,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
 
       {shape === "cone" && (
         <>
-          <label className="block text-lg font-bold text-gray-700 mb-1">
+          <label className="block font-bold text-gray-700 mb-1">
             윗지름 (cm)
           </label>
           <input
@@ -171,7 +171,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
             className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
             required
           />
-          <label className="block text-lg font-bold text-gray-700 mb-1 mt-4">
+          <label className="block font-bold text-gray-700 mb-1 mt-4">
             아래지름 (cm)
           </label>
           <input
@@ -186,7 +186,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
 
       {shape === "other" && (
         <>
-          <label className="block text-lg font-bold text-gray-700 mb-1">
+          <label className="block font-bold text-gray-700 mb-1">
             면적 (cm²)
           </label>
           <input
@@ -201,7 +201,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
 
       {/* 공통 입력 필드 */}
       <div>
-        <label className="block text-lg font-bold text-gray-700 mb-1 mt-4">
+        <label className="block font-bold text-gray-700 mb-1 mt-4">
             높이 (cm)
         </label>
         <input
@@ -213,7 +213,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
         />
       </div>
       <div>
-        <label className="block text-lg font-bold text-gray-700 mb-1">
+        <label className="block font-bold text-gray-700 mb-1">
           화분 개수
         </label>
         <input
@@ -227,7 +227,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
 
       <button
         type="submit"
-        className="bg-green-600 text-white font-bold text-lg p-2 mt-2 w-full rounded-md"
+        className="bg-green-600 text-white font-bold p-2 mt-2 w-full rounded-md"
       >
         계산하기
       </button>

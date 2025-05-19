@@ -26,17 +26,17 @@ const ResultBox: React.FC<ResultBoxProps> = ({ volume}) => {
   const only8L = getOnly8LBreakdown(volume);
 
   return (
-    <div className="my-4 p-4 bg-amber-50 rounded-2xl shadow-md w-full max-w-md text-gray-800 space-y-4">
-      <h2 className="text-lg font-bold">계산 결과</h2>
+    <div className="my-4 p-4 bg-amber-50 rounded-2xl w-full max-w-md text-gray-800 space-y-4">
+      <h2 className="font-bold">계산 결과</h2>
 
       <div className="flex justify-between">
-        <span className="text-lg font-bold">필요한 흙 용량:</span>
-        <span className="text-lg font-bold">{volume}리터</span>
+        <span className="font-bold">필요한 흙 용량:</span>
+        <span className="font-bold">{volume}리터</span>
       </div>
 
       <div className="p-4 rounded-xl border border-gray-200 bg-white shadow-sm">
-        <p className="text-lg mb-1">추천1: 가성비 대용량 제품</p>
-        <p className="text-lg font-bold text-green-800">➡️ {mixed}</p>
+        <p className="mb-1">추천1: 가성비 대용량 제품</p>
+        <p className="font-bold text-green-800">➡️ {mixed}</p>
         <div className="flex space-x-4 mt-4">
           {/* 20L 제품 */}
           <div className="flex flex-col items-center space-y-1">
@@ -55,7 +55,7 @@ const ResultBox: React.FC<ResultBoxProps> = ({ volume}) => {
               href="https://smartstore.naver.com/changbitfarm/products/6363814423"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm bg-green-600 text-white px-3 py-1 rounded"
+              className="text-lg bg-green-600 text-white px-3 py-1 rounded"
             >
               구매하기
             </a>
@@ -79,7 +79,7 @@ const ResultBox: React.FC<ResultBoxProps> = ({ volume}) => {
                 href="https://smartstore.naver.com/changbitfarm/products/6364451019"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm bg-green-600 text-white px-3 py-1 rounded"
+                className="text-lg bg-green-600 text-white px-3 py-1 rounded"
               >
                 구매하기
               </a>
@@ -95,8 +95,8 @@ const ResultBox: React.FC<ResultBoxProps> = ({ volume}) => {
       </div>
 
       <div className="p-4 rounded-xl border border-gray-200 bg-white shadow-sm">
-        <p className="text-lg mb-1">추천2: 최고급 소포장 제품</p>
-        <p className="text-lg font-bold text-green-800">➡️ {only8L}</p>
+        <p className="mb-1">추천2: 최고급 소포장 제품</p>
+        <p className="font-bold text-green-800">➡️ {only8L}</p>
         <div className="flex flex-col items-center space-y-1 mt-4">
           <a
             href="https://smartstore.naver.com/changbitfarm/products/6364451019"
@@ -113,7 +113,7 @@ const ResultBox: React.FC<ResultBoxProps> = ({ volume}) => {
             href="https://smartstore.naver.com/changbitfarm/products/6364451019"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm bg-green-600 text-white px-3 py-1 rounded"
+            className="text-lg bg-green-600 text-white px-3 py-1 rounded"
           >
             구매하기
           </a>
