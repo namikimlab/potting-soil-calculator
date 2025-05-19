@@ -236,7 +236,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
 
       <button
         type="submit"
-        className="bg-green-600 text-white font-bold p-2 mt-2 w-full rounded-md"
+        className="bg-green-600 text-white font-bold p-2 mt-2 mb-4 w-full rounded-md"
       >
         계산하기
       </button>

@@ -11,8 +11,7 @@ type VolumeInput = {
 };
 
 export function calculateSoilVolume(input: VolumeInput): number {
-  console.log("입력값:", input);
-
+  
   const shape = input.shape;
 
   // 모든 수치 입력값을 숫자로 변환
@@ -47,8 +46,7 @@ export function calculateSoilVolume(input: VolumeInput): number {
       if (topDiameter && bottomDiameter) {
         const topR = topDiameter / 2;
         const bottomR = bottomDiameter / 2;
-        const avgR = (topR + bottomR) / 2;
-        volumeCm3 = (1 / 3) * Math.PI * avgR * avgR * height;
+        volumeCm3 = (1 / 3) * Math.PI * height * (topR * topR + topR * bottomR + bottomR * bottomR);
       }
       break;
 
@@ -63,5 +61,8 @@ export function calculateSoilVolume(input: VolumeInput): number {
   }
 
   const volumeL = volumeCm3 / 1000;
+
+  console.log("부피:", volumeL);
+
   return Math.round(volumeL * quantity);
 }
