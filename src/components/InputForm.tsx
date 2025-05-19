@@ -29,9 +29,18 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("submit!", { shape, width, length, height, diameter, 
-      topDiameter, bottomDiameter, surfaceArea, quantity });
-      
+    console.log("submit!", {
+      shape,
+      width,
+      length,
+      height,
+      diameter,
+      topDiameter,
+      bottomDiameter,
+      surfaceArea,
+      quantity,
+    });
+
     switch (shape) {
       case "rectangle":
         if (!width || !length || !height || !quantity) return;
@@ -66,7 +75,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
         if (!surfaceArea || !height || !quantity) return;
         onCalculate({
           shape: "other",
-          surfaceArea: Number(surfaceArea), 
+          surfaceArea: Number(surfaceArea),
           height: Number(height),
           quantity: Number(quantity),
         });
@@ -78,42 +87,44 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
     <form onSubmit={handleSubmit} className="space-y-4">
       {/* 화분 형태 */}
       <div>
-        <label className="block font-bold text-gray-700 mb-1">
+        <label className="block font-bold text-gray-700 mb-4">
           화분 모양을 골라주세요
         </label>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-4 mb-4">
           {shapes.map((shapeOption) => (
-            <button
+            <div
               key={shapeOption.value}
-              type="button"
-              onClick={() => setShape(shapeOption.value)}
-              className={`aspect-square w-full rounded-lg p-1 flex flex-col 
-                items-center justify-center transition-all duration-200 ease-in-out
-                border-3 ${
-                  shape === shapeOption.value
-                    ? "border-amber-500"
-                    : "border-transparent"
-                }
-                  bg-amber-50
-                  focus:outline-none focus:ring-0
-              `}
+              className="flex flex-col items-center space-y-1"
             >
-              <div className="w-16 h-16 flex items-center justify-center">
+              <button
+                type="button"
+                onClick={() => setShape(shapeOption.value)}
+                className={`w-[140px] h-[140px] rounded-xl p-0 flex items-center justify-center
+            transition-all duration-200 ease-in-out
+            ${
+              shape === shapeOption.value
+                ? "border-2 border-amber-500"
+                : "border-0"
+            }
+            bg-amber-50 focus:outline-none focus:ring-0`}
+              >
                 <img
                   src={shapeOption.icon}
                   alt={shapeOption.label}
-                  className="w-full h-full object-contain"
+                  className="w-26 h-26 object-contain"
                 />
-              </div>
+              </button>
               <span
-                className={`mt-2 text-base text-center transition ${
-                  shape === shapeOption.value ? "font-bold" : "font-normal"
+                className={`text-lg text-center transition ${
+                  shape === shapeOption.value
+                    ? "font-bold text-gray-900"
+                    : "text-gray-800"
                 }`}
               >
                 {shapeOption.label}
               </span>
-            </button>
+            </div>
           ))}
         </div>
       </div>
@@ -202,20 +213,18 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
       {/* 공통 입력 필드 */}
       <div>
         <label className="block font-bold text-gray-700 mb-1 mt-4">
-            높이 (cm)
+          높이 (cm)
         </label>
         <input
-            type="number"
-            value={height}
-            onChange={(e) => setHeight(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
-            required
+          type="number"
+          value={height}
+          onChange={(e) => setHeight(e.target.value)}
+          className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
+          required
         />
       </div>
       <div>
-        <label className="block font-bold text-gray-700 mb-1">
-          화분 개수
-        </label>
+        <label className="block font-bold text-gray-700 mb-1">화분 개수</label>
         <input
           type="number"
           value={quantity}
