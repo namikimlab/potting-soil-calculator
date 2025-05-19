@@ -20,14 +20,18 @@ function App() {
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="w-full max-w-md mb-12">
-        {/* logo with link */}
+        {/* Logo with link */}
         <a
           href="https://smartstore.naver.com/changbitfarm"
           target="_blank"
           rel="noopener noreferrer"
           className="block mx-auto mt-4 mb-2 w-[178px] text-center"
         >
-          <img src={logo} alt="창빛농원" className="w-[178px] h-[40px] object-contain" />
+          <img
+            src={logo}
+            alt="창빛농원"
+            className="w-[178px] h-[40px] object-contain"
+          />
         </a>
 
         {/* Title */}
@@ -35,10 +39,12 @@ function App() {
           🌱 분갈이 흙 계산기
         </h1>
 
+        {/* Input Form */}
         <div className="w-full rounded-xl">
           <InputForm onCalculate={handleCalculate} />
         </div>
 
+        {/* Result box */}
         {result && (
           <div className="w-full">
             <ResultBox
@@ -47,6 +53,20 @@ function App() {
             />
           </div>
         )}
+
+        {/* Footer */}
+        <div className="w-full text-sm max-w-md text-center text-gray-500 py-4">
+          <a
+            href="https://smartstore.naver.com/changbitfarm"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-600 hover:underline block mb-1"
+          >
+            원예용품 쇼핑몰 바로가기
+          </a>
+          <span>© 2025 창빛농원. All rights reserved.</span>
+        </div>
+
       </div>
     </div>
   );
