@@ -3,7 +3,7 @@ type ResultBoxProps = {
   recommendation: string;
 };
 
-const ResultBox: React.FC<ResultBoxProps> = ({ volume}) => {
+const ResultBox: React.FC<ResultBoxProps> = ({ volume }) => {
   const getMixedBreakdown = (volume: number): string => {
     const num20L = volume <= 20 ? 1 : Math.floor(volume / 20);
     const remaining = volume - num20L * 20;
@@ -29,10 +29,14 @@ const ResultBox: React.FC<ResultBoxProps> = ({ volume}) => {
     <div className="my-4 p-4 bg-amber-50 rounded-2xl w-full max-w-md text-gray-800 space-y-4">
       <h2 className="font-bold">계산 결과</h2>
 
-      <div className="flex justify-between">
+      <div className="flex justify-between mb-1 ">
         <span className="font-bold">필요한 흙 용량:</span>
         <span className="font-bold">{volume}리터</span>
       </div>
+
+      <p className="text-sm text-gray-600">
+       🪴 화분의 80%만 흙으로 채운다고 가정했어요.
+      </p>
 
       <div className="p-4 rounded-xl border border-gray-200 bg-white shadow-sm">
         <p className="mb-1">추천1: 가성비 대용량 제품</p>

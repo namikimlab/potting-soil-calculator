@@ -60,9 +60,8 @@ export function calculateSoilVolume(input: VolumeInput): number {
       return 0;
   }
 
-  const volumeL = volumeCm3 / 1000;
-
-  console.log("부피:", volumeL);
+  console.log("부피cm3:", volumeCm3);
+  const volumeL = (volumeCm3 / 1000) * 0.8; // 80%만 흙으로 채운다고 계산
 
   return Math.round(volumeL * quantity);
 }
