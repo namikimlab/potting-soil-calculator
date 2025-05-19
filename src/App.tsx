@@ -55,7 +55,7 @@ function App() {
         )}
 
         {/* Footer */}
-        <div className="w-full text-sm max-w-md text-center text-gray-500 py-4">
+        <div className="w-full text-base max-w-md text-center text-gray-500 py-4">
           <a
             href="https://smartstore.naver.com/changbitfarm"
             target="_blank"
@@ -64,7 +64,7 @@ function App() {
           >
             원예용품 쇼핑몰 바로가기
           </a>
-          <span>© 2025 창빛농원. All rights reserved.</span>
+          <span>© 2025 창빛농원. 무단 복제 및 전재 금지</span>
         </div>
 
       </div>
