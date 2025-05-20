@@ -1,6 +1,16 @@
+/**
+ * ShapeSelector.tsx
+ *
+ * Renders a group of selectable pot shapes.
+ * Highlights the selected shape and allows user to choose one.
+ */
+
 type ShapeOption = {
+  /** Currently selected shape value */
   label: string;
+  /** Array of available shape options */
   value: string;
+  /** Callback when user selects a shape */
   icon: string;
 };
 

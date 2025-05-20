@@ -1,3 +1,12 @@
+/**
+ * Footer.tsx
+ *
+ * Displays the footer section of the app.
+ * Contains:
+ * - A link to the Smart Store
+ * - Copyright text
+ */
+
 const Footer = () => (
   <div className="w-full text-base max-w-md text-center text-gray-500 py-4">
     <a

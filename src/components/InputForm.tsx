@@ -1,3 +1,10 @@
+/**
+ * InputForm component
+ *
+ * Renders a dynamic form for selecting pot shape and entering dimensions
+ * to calculate required soil volume.
+ */
+
 import React, { useState } from "react";
 import rectangleImg from "../assets/images/rectangle.webp";
 import cylinderImg from "../assets/images/cylinder.webp";
@@ -8,10 +15,12 @@ import InputField from "./InputField";
 import ShapeSelector from "./ShapeSelector";
 
 interface InputFormProps {
+  /** Callback function that receives validated input for calculation */
   onCalculate: (data: InputData) => void;
 }
 
 const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
+  // 선택 가능한 화분 형태 목록
   const [shape, setShape] = useState("cone");
   const [width, setWidth] = useState("");
   const [length, setLength] = useState("");
@@ -22,6 +31,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
   const [surfaceArea, setSurfaceArea] = useState("");
   const [quantity, setQuantity] = useState("1");
 
+  // List of selectable pot shapes
   const shapes = [
     { label: "사각형", value: "rectangle", icon: rectangleImg },
     { label: "원통형", value: "cylinder", icon: cylinderImg },
@@ -32,6 +42,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Validate required fields based on selected shape and perform calculation
     switch (shape) {
       case "rectangle":
         if (!width || !length || !height || !quantity) return;
@@ -74,6 +85,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
     }
   };
 
+  // Render input fields based on selected pot shape
   const renderShapeFields = () => {
     switch (shape) {
       case "rectangle":

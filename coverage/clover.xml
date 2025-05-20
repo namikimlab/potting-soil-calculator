@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1747742791908" clover="3.2.0">
+  <project timestamp="1747742791908" name="All files">
+    <metrics statements="33" coveredstatements="33" conditionals="17" coveredconditionals="17" methods="2" coveredmethods="2" elements="52" coveredelements="52" complexity="0" loc="33" ncloc="33" packages="1" files="1" classes="1"/>
+    <file name="calculator.ts" path="/Users/apple/2025/potting-soil-calculator/src/utils/calculator.ts">
+      <metrics statements="33" coveredstatements="33" conditionals="17" coveredconditionals="17" methods="2" coveredmethods="2"/>
+      <line num="25" count="1" type="stmt"/>
+      <line num="26" count="48" type="stmt"/>
+      <line num="27" count="48" type="cond" truecount="2" falsecount="0"/>
+      <line num="37" count="1" type="stmt"/>
+      <line num="38" count="6" type="stmt"/>
+      <line num="41" count="6" type="stmt"/>
+      <line num="42" count="6" type="stmt"/>
+      <line num="43" count="6" type="stmt"/>
+      <line num="44" count="6" type="stmt"/>
+      <line num="45" count="6" type="stmt"/>
+      <line num="46" count="6" type="stmt"/>
+      <line num="47" count="6" type="stmt"/>
+      <line num="48" count="6" type="stmt"/>
+      <line num="51" count="6" type="cond" truecount="3" falsecount="0"/>
+      <line num="53" count="5" type="stmt"/>
+      <line num="55" count="5" type="cond" truecount="4" falsecount="0"/>
+      <line num="58" count="2" type="cond" truecount="3" falsecount="0"/>
+      <line num="59" count="2" type="stmt"/>
+      <line num="61" count="2" type="stmt"/>
+      <line num="65" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="66" count="1" type="stmt"/>
+      <line num="67" count="1" type="stmt"/>
+      <line num="69" count="1" type="stmt"/>
+      <line num="73" count="1" type="cond" truecount="3" falsecount="0"/>
+      <line num="74" count="1" type="stmt"/>
+      <line num="75" count="1" type="stmt"/>
+      <line num="76" count="1" type="stmt"/>
+      <line num="82" count="1" type="stmt"/>
+      <line num="86" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="87" count="1" type="stmt"/>
+      <line num="89" count="1" type="stmt"/>
+      <line num="93" count="5" type="stmt"/>
+      <line num="96" count="5" type="stmt"/>
+    </file>
+  </project>
+</coverage>

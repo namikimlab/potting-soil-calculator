@@ -1,3 +1,13 @@
+/**
+ * ResultBox.tsx
+ *
+ * Displays the calculated soil volume and product recommendations
+ * based on the result. Includes:
+ * - Volume display
+ * - Two product recommendation strategies
+ * - Additional gravel suggestion for drainage
+ */
+
 import { getMixedBreakdown, getOnly8LBreakdown } from "../utils/breakdown";
 import ProductCard from "./ProductCard";
 
@@ -22,7 +32,7 @@ const ResultBox: React.FC<ResultBoxProps> = ({ volume }) => {
         🪴 화분의 80%만 흙으로 채운다고 가정했어요.
       </p>
 
-      {/* 추천 1 */}
+      {/* Recommendation #1: Mixed 20L + 8L */}
       <div className="p-4 rounded-xl border border-gray-200 bg-white shadow-sm">
         <p className="mb-1">추천1: 가성비 대용량 제품</p>
         <p className="font-bold text-green-800">✅ {mixed}</p>
@@ -42,13 +52,14 @@ const ResultBox: React.FC<ResultBoxProps> = ({ volume }) => {
         </div>
       </div>
 
+      {/* Separator */}
       <div className="flex items-center my-6">
         <div className="flex-grow h-px bg-gray-300"></div>
         <span className="mx-4 text-gray-500">또는</span>
         <div className="flex-grow h-px bg-gray-300"></div>
       </div>
 
-      {/* 추천 2 */}
+      {/* Recommendation #2: 8L only */}
       <div className="p-4 rounded-xl border border-gray-200 bg-white shadow-sm">
         <p className="mb-1">추천2: 최고급 소포장 제품</p>
         <p className="font-bold text-green-800">✅ {only8L}</p>
@@ -61,14 +72,15 @@ const ResultBox: React.FC<ResultBoxProps> = ({ volume }) => {
         </div>
       </div>
 
-      {/* 마사토 안내 + 제품 */}
+      {/* Gravel suggestion */}
       <div className="mt-8">
         <p className="font-bold">👉 화분 바닥에 자갈을 약간 깔아주세요.</p>
         <p className="text-base text-gray-600">
           배수에 도움이 되어 뿌리가 썩는 걸 막아줘요.
         </p>
       </div>
-
+      
+      {/* Gravel product links */}
       <div className="p-4 rounded-xl border border-gray-200 bg-white shadow-sm">
         <p className="font-bold text-green-800">세척 마사토</p>
         <div className="flex justify-center space-x-4 mt-4">

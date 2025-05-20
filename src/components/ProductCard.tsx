@@ -1,3 +1,10 @@
+/**
+ * ProductCard component
+ * 
+ * Renders a product image and a "Buy" button
+ * linking to an external product URL. Used in recommendation sections.
+ */
+
 type ProductCardProps = {
   imageSrc: string;
   alt: string;

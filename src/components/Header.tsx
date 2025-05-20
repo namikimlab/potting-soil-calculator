@@ -1,3 +1,11 @@
+/**
+ * Header.tsx
+ *
+ * Displays the top section of the app:
+ * - Store logo with link
+ * - Main application title
+ */
+
 import logo from "../assets/logo.webp";
 
 const Header = () => (
