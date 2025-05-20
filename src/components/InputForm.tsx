@@ -4,6 +4,8 @@ import cylinderImg from "../assets/images/cylinder.webp";
 import coneImg from "../assets/images/cone.webp";
 import otherImg from "../assets/images/other.webp";
 import type { InputData } from "../types";
+import InputField from "./InputField";
+import ShapeSelector from "./ShapeSelector";
 
 interface InputFormProps {
   onCalculate: (data: InputData) => void;
@@ -29,17 +31,6 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("submit!", {
-      shape,
-      width,
-      length,
-      height,
-      diameter,
-      topDiameter,
-      bottomDiameter,
-      surfaceArea,
-      quantity,
-    });
 
     switch (shape) {
       case "rectangle":
@@ -83,156 +74,66 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
     }
   };
 
+  const renderShapeFields = () => {
+    switch (shape) {
+      case "rectangle":
+        return (
+          <>
+            <InputField label="가로 (cm)" value={width} onChange={setWidth} />
+            <InputField label="세로 (cm)" value={length} onChange={setLength} />
+          </>
+        );
+      case "cylinder":
+        return (
+          <InputField
+            label="지름 (cm)"
+            value={diameter}
+            onChange={setDiameter}
+          />
+        );
+      case "cone":
+        return (
+          <>
+            <InputField
+              label="윗지름 (cm)"
+              value={topDiameter}
+              onChange={setTopDiameter}
+            />
+            <InputField
+              label="아래지름 (cm)"
+              value={bottomDiameter}
+              onChange={setBottomDiameter}
+              className="mt-4"
+            />
+          </>
+        );
+      case "other":
+        return (
+          <InputField
+            label="면적 (cm²)"
+            value={surfaceArea}
+            onChange={setSurfaceArea}
+          />
+        );
+    }
+  };
+
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      {/* 화분 형태 */}
-      <div>
-        <label className="block font-bold text-gray-700 mb-4">
-          화분 모양을 골라주세요
-        </label>
+      <label className="block font-bold text-gray-700 mb-4">
+        화분 모양을 골라주세요
+      </label>
+      <ShapeSelector shape={shape} options={shapes} onSelect={setShape} />
 
-        <div className="grid grid-cols-2 gap-4 mb-4">
-          {shapes.map((shapeOption) => (
-            <div
-              key={shapeOption.value}
-              className="flex flex-col items-center space-y-1"
-            >
-              <button
-                type="button"
-                onClick={() => setShape(shapeOption.value)}
-                className={`w-[140px] h-[140px] rounded-xl p-0 flex items-center justify-center
-            transition-all duration-200 ease-in-out
-            ${
-              shape === shapeOption.value
-                ? "border-2 border-amber-500"
-                : "border-0"
-            }
-            bg-amber-50 focus:outline-none focus:ring-0`}
-              >
-                <img
-                  src={shapeOption.icon}
-                  alt={shapeOption.label}
-                  className="w-26 h-26 object-contain"
-                />
-              </button>
-              <span
-                className={`text-lg text-center transition ${
-                  shape === shapeOption.value
-                    ? "font-bold text-gray-900"
-                    : "text-gray-800"
-                }`}
-              >
-                {shapeOption.label}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
+      {renderShapeFields()}
 
-      {/* 입력 필드 - shape별 조건부 렌더링 */}
-      {shape === "rectangle" && (
-        <>
-          <label className="block font-bold text-gray-700 mb-1">
-            가로 (cm)
-          </label>
-          <input
-            type="number"
-            value={width}
-            onChange={(e) => setWidth(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
-            required
-          />
-          <label className="block font-bold text-gray-700 mb-1 mt-2">
-            세로 (cm)
-          </label>
-          <input
-            type="number"
-            value={length}
-            onChange={(e) => setLength(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
-            required
-          />
-        </>
-      )}
-
-      {shape === "cylinder" && (
-        <>
-          <label className="block font-bold text-gray-700 mb-1">
-            지름 (cm)
-          </label>
-          <input
-            type="number"
-            value={diameter}
-            onChange={(e) => setDiameter(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
-            required
-          />
-        </>
-      )}
-
-      {shape === "cone" && (
-        <>
-          <label className="block font-bold text-gray-700 mb-1">
-            윗지름 (cm)
-          </label>
-          <input
-            type="number"
-            value={topDiameter}
-            onChange={(e) => setTopDiameter(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
-            required
-          />
-          <label className="block font-bold text-gray-700 mb-1 mt-4">
-            아래지름 (cm)
-          </label>
-          <input
-            type="number"
-            value={bottomDiameter}
-            onChange={(e) => setBottomDiameter(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
-            required
-          />
-        </>
-      )}
-
-      {shape === "other" && (
-        <>
-          <label className="block font-bold text-gray-700 mb-1">
-            면적 (cm²)
-          </label>
-          <input
-            type="number"
-            value={surfaceArea}
-            onChange={(e) => setSurfaceArea(e.target.value)}
-            className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
-            required
-          />
-        </>
-      )}
-
-      {/* 공통 입력 필드 */}
-      <div>
-        <label className="block font-bold text-gray-700 mb-1 mt-4">
-          높이 (cm)
-        </label>
-        <input
-          type="number"
-          value={height}
-          onChange={(e) => setHeight(e.target.value)}
-          className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
-          required
-        />
-      </div>
-      <div>
-        <label className="block font-bold text-gray-700 mb-1">화분 개수</label>
-        <input
-          type="number"
-          value={quantity}
-          onChange={(e) => setQuantity(e.target.value)}
-          className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
-          required
-        />
-      </div>
+      <InputField
+        label="높이 (cm)"
+        value={height}
+        onChange={setHeight}
+        className="mt-4"
+      />
+      <InputField label="화분 개수" value={quantity} onChange={setQuantity} />
 
       <button
         type="submit"
