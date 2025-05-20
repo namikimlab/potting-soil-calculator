@@ -10,7 +10,7 @@ interface InputFormProps {
 }
 
 const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
-  const [shape, setShape] = useState("cylinder");
+  const [shape, setShape] = useState("cone");
   const [width, setWidth] = useState("");
   const [length, setLength] = useState("");
   const [height, setHeight] = useState("");
