@@ -1,54 +1,68 @@
-# React + TypeScript + Vite
+![React](https://img.shields.io/badge/React-18-blue?logo=react)
+![Vite](https://img.shields.io/badge/Vite-4-purple?logo=vite)
+![Netlify](https://img.shields.io/badge/Deployed%20on-Netlify-green?logo=netlify)
+![TypeScript](https://img.shields.io/badge/TypeScript-%233178C6?logo=typescript&logoColor=white)
+![Coverage](https://img.shields.io/badge/Coverage-100%25-brightgreen)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[🇺🇸 English](./README.md) | [🇰🇷 한국어](./README.ko.md)
 
-Currently, two official plugins are available:
+# 🌱 Potting Soil Volume Calculator
+> A practical soil calculator built with React, TypeScript, and Vite — fast, mobile-friendly, SEO-ready, and designed like a real product.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This calculates the right amount of soil based on your plant pot's shape and size.
 
-## Expanding the ESLint configuration
+## Why This Project?
+I created this calculator as a practical tool for beginner gardeners and to showcase my full ownership of a production-ready frontend tool — from UX to deployment and SEO.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- user input validation
+- domain logic (geometry, volume calculation)
+- product recommendation logic
+- mobile-first design, SEO, analytics ready
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+<p align="center">
+  <img src="screenshot_1.png" alt="Screenshot 1" width="30%" />
+  <img src="screenshot_2.png" alt="Screenshot 2" width="30%" />
+  <img src="screenshot_3.png" alt="Screenshot 3" width="30%" />
+</p>
+
+### 👉 [Try it Live](https://soilcalc.changbitfarm.com)
+
+## Features
+- Supports 4 pot shapes: rectangle, cylinder, cone, and custom surface area
+- Calculates volume in liters (assuming 80% fill level)
+- Suggests product combinations (20L + 8L) for optimal soil usage
+- Responsive, fast-loading SPA with Vite + React + Tailwind
+- SEO-optimized with Open Graph meta tags, favicon, sitemap, and analytics
+
+## Tech Stack
+- Frontend: React + TypeScript + Tailwind CSS
+- Build: Vite
+- Deployment: Netlify
+- SEO: Open Graph, custom sitemap.xml, robots.txt
+- Analytics: Google Analytics (GA4)
+- Tested with: Jest + ts-jest
+
+## Testing
+Run unit tests:
+```bash
+npm test
+npm run test:coverage
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Notable Code Highlights
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- [Soil volume calculation logic](./src/utils/calculator.ts)
+- [Unit tests with full coverage](./src/utils/calculator.test.ts)
+- [Product breakdown logic](./src/utils/breakdown.ts)
+- [Shape selector component](./src/components/ShapeSelector.tsx)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Production Readiness
+- HTTPS (via Netlify)
+- No runtime backend: pure static SPA = low attack surface
+- Googlebot and KakaoTalk-friendly (og:image, meta tags)
+- Deployed via CI/CD from main branch to [Netlify](https://soilcalc.changbitfarm.com).
+
+
+---
+Made with 🧡 by Nami Kim
+[Blog](https://namixkim.com) | [GitHub](https://github.com/namikimlab) | [LinkedIn](https://linkedin.com/in/namixkim)
