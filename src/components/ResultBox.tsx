@@ -20,7 +20,7 @@ const ResultBox = ({ volume }: ResultBoxProps) => {
 
   return (
     <div className="w-full px-4 pt-6 space-y-4">
-      <p className="text-[#131712] text-base font-normal">
+      <p className="text-gray-500 text-sm">
         화분의 약 80%만 흙으로 채운다고 가정했어요.
       </p>
       <h2 className="text-[#131712] text-xl font-bold leading-tight">
@@ -30,16 +30,12 @@ const ResultBox = ({ volume }: ResultBoxProps) => {
         {volume} 리터
       </h3>
 
-      <p className="text-[#131712] text-base">
-        이렇게 구매해 보세요.
-      </p>
+      <p className="text-[#131712] text-base">이렇게 추천할께요.</p>
 
       {primary.map((rec, idx) => (
         <div key={`primary-${idx}`}>
           {idx > 0 && (
-            <div className="text-gray-500 my-2 text-base">
-              - 또는 -
-            </div>
+            <div className="text-gray-500 my-2 text-base">- 또는 -</div>
           )}
           <p className="text-[#131712] text-lg font-bold">
             {primary.length > 1 ? `👉 ${rec}` : `✅ ${rec}`}
@@ -50,14 +46,14 @@ const ResultBox = ({ volume }: ResultBoxProps) => {
       {note.length > 0 &&
         note.map((rec, idx) => (
           <div key={`note-${idx}`}>
-            <div className=" text-gray-500 my-2 text-base">
-              - 또는 -
-            </div>
-            <p className="text-[#131712] text-lg font-bold">
-              👉 {rec}
-            </p>
+            <div className=" text-gray-500 my-2 text-base">- 또는 -</div>
+            <p className="text-[#131712] text-lg font-bold">👉 {rec}</p>
           </div>
         ))}
+
+      <p className="text-gray-500 text-sm">
+        화분의 크기나 식물 종류에 따라 실제 필요한 흙의 양은 달라질 수 있어요.
+      </p>
 
       <div className="grid grid-cols-1 gap-3 mt-6">
         <ProductCard
