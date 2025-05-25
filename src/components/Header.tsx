@@ -3,28 +3,24 @@
  *
  * Displays the top section of the app:
  * - Store logo with link
- * - Main application title
  */
 
 import logo from "../assets/logo.webp";
 
 const Header = () => (
-  <header className="text-center my-4">
+  <header className="sticky top-0 z-50 bg-white pt-4 pb-2 flex flex-col items-center justify-center shadow-sm">
     <a
       href="https://smartstore.naver.com/changbitfarm"
       target="_blank"
       rel="noopener noreferrer"
-      className="block mb-2"
+      className="mb-2"
     >
       <img
         src={logo}
-        alt="창빛농원"
-        className="w-[178px] h-[40px] object-contain mx-auto"
+        alt="창빛농원 로고"
+        className="w-[140px] h-auto object-contain"
       />
     </a>
-    <h1 className="text-3xl font-bold text-green-900 mb-6">
-      🌱 분갈이 흙 계산기
-    </h1>
   </header>
 );
 

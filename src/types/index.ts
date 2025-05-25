@@ -4,9 +4,9 @@ export type ResultData = {
 
 export type InputData =
   | {
-      shape: "rectangle";
-      width: number;
-      length: number;
+      shape: "cone";
+      topDiameter: number;
+      bottomDiameter: number;
       height: number;
       quantity: number;
     }
@@ -17,9 +17,9 @@ export type InputData =
       quantity: number;
     }
   | {
-      shape: "cone";
-      topDiameter: number;
-      bottomDiameter: number;
+      shape: "rectangle";
+      width: number;
+      length: number;
       height: number;
       quantity: number;
     }

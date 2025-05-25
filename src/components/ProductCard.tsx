@@ -1,30 +1,40 @@
 /**
  * ProductCard component
- * 
+ *
  * Renders a product image and a "Buy" button
  * linking to an external product URL. Used in recommendation sections.
  */
 
 type ProductCardProps = {
   imageSrc: string;
-  alt: string;
+  title: string;
+  subtitle: string;
   href: string;
 };
 
-const ProductCard = ({ imageSrc, alt, href }: ProductCardProps) => (
-  <div className="w-24 flex flex-col items-center space-y-1">
-    <a href={href} target="_blank" rel="noopener noreferrer">
-      <img
-        src={imageSrc}
-        alt={alt}
-        className="w-24 h-24 object-cover rounded shadow"
-      />
-    </a>
+const ProductCard = ({ imageSrc, title, subtitle, href }: ProductCardProps) => (
+  <div className="flex flex-col gap-3 pb-3">
+    <div
+      className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+      style={{ backgroundImage: `url(${imageSrc})` }}
+    ></div>
+    <div>
+      <p className="text-[#131712] text-base font-medium">
+        {title}
+      </p>
+      <p className="text-[#6d8566] text-sm font-normal">
+        {subtitle}
+      </p>
+    </div>
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-lg bg-green-600 text-white px-3 py-1 rounded text-center w-full"
+      className="
+        flex items-center justify-center
+        w-full max-w-[480px] px-4 h-10 rounded-full
+      bg-[#50d22c] text-[#131712] text-sm font-bold
+        cursor-pointer"
     >
       구매하기
     </a>

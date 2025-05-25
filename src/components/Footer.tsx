@@ -8,7 +8,7 @@
  */
 
 const Footer = () => (
-  <div className="w-full text-base max-w-md text-center text-gray-500 py-4">
+  <div className="w-full text-sm max-w-md text-center text-gray-500 py-4">
     <a
       href="https://smartstore.naver.com/changbitfarm"
       target="_blank"

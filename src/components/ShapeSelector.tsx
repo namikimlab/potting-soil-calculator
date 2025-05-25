@@ -2,51 +2,42 @@
  * ShapeSelector.tsx
  *
  * Renders a group of selectable pot shapes.
- * Highlights the selected shape and allows user to choose one.
+ * - Displays pot shape options as icons with labels
+ * - Highlights the selected shape with a border
+ * - Calls the `onSelect` callback when a shape is clicked
  */
 
 type ShapeOption = {
-  /** Currently selected shape value */
-  label: string;
-  /** Array of available shape options */
-  value: string;
-  /** Callback when user selects a shape */
-  icon: string;
+  label: string;  // Display label (e.g., "Cone")
+  value: string;  // Internal shape identifier (e.g., "cone")
+  icon: string;   // Background image URL
 };
 
 type ShapeSelectorProps = {
-  shape: string;
-  options: ShapeOption[];
-  onSelect: (value: string) => void;
+  shape: string;    // Currently selected shape value
+  options: ShapeOption[];   // List of selectable shapes
+  onSelect: (value: string) => void; // Callback when shape is selected
 };
 
 const ShapeSelector = ({ shape, options, onSelect }: ShapeSelectorProps) => (
-  <div className="grid grid-cols-2 gap-4 mb-4">
+  <div className="grid grid-cols-2 gap-3 px-4 pb-3">
     {options.map((option) => (
-      <div key={option.value} className="flex flex-col items-center space-y-1">
-        <button
-          type="button"
-          onClick={() => onSelect(option.value)}
-          className={`w-[140px] h-[140px] rounded-xl p-0 flex items-center justify-center
-            transition-all duration-200 ease-in-out
-            ${shape === option.value ? "border-2 border-amber-500" : "border-0"}
-            bg-amber-50 focus:outline-none focus:ring-0`}
-        >
-          <img
-            src={option.icon}
-            alt={option.label}
-            className="w-26 h-26 object-contain"
-          />
-        </button>
-        <span
-          className={`text-lg text-center transition ${
+      <div
+        key={option.value}
+        className="flex flex-col gap-3 pb-3 cursor-pointer"
+        onClick={() => onSelect(option.value)}
+      >
+        <div
+          className={`w-full aspect-square bg-center bg-no-repeat bg-cover rounded-xl transition-all duration-200 ${
             shape === option.value
-              ? "font-bold text-gray-900"
-              : "text-gray-800"
+              ? "border-2 border-yellow-700"
+              : "border border-transparent"
           }`}
-        >
+          style={{ backgroundImage: `url(${option.icon})` }}
+        ></div>
+        <p className="text-[#131712] text-base font-medium leading-normal text-center">
           {option.label}
-        </span>
+        </p>
       </div>
     ))}
   </div>

@@ -1,8 +1,10 @@
 /**
- * InputForm component
+ * InputForm.tsx
  *
- * Renders a dynamic form for selecting pot shape and entering dimensions
- * to calculate required soil volume.
+ * Renders the full input form for calculating potting soil volume:
+ * - ShapeSelector: lets user choose the shape of the pot
+ * - Dynamic input fields based on selected shape
+ * - Submits validated input to the parent via onCalculate callback
  */
 
 import React, { useState } from "react";
@@ -15,12 +17,12 @@ import InputField from "./InputField";
 import ShapeSelector from "./ShapeSelector";
 
 interface InputFormProps {
-  /** Callback function that receives validated input for calculation */
+  /** Callback function to pass validated input data to the parent */
   onCalculate: (data: InputData) => void;
 }
 
 const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
-  // 선택 가능한 화분 형태 목록
+  // Current selected shape and all dimensional inputs
   const [shape, setShape] = useState("cone");
   const [width, setWidth] = useState("");
   const [length, setLength] = useState("");
@@ -31,23 +33,23 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
   const [surfaceArea, setSurfaceArea] = useState("");
   const [quantity, setQuantity] = useState("1");
 
-  // List of selectable pot shapes
+  // Pot shape options for the selector
   const shapes = [
-    { label: "사각형", value: "rectangle", icon: rectangleImg },
-    { label: "원통형", value: "cylinder", icon: cylinderImg },
     { label: "원뿔형", value: "cone", icon: coneImg },
+    { label: "원통형", value: "cylinder", icon: cylinderImg },
+    { label: "사각형", value: "rectangle", icon: rectangleImg },
     { label: "기타", value: "other", icon: otherImg },
   ];
 
+  // Submit handler — validates input and calls onCalculate
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validate required fields based on selected shape and perform calculation
     switch (shape) {
       case "rectangle":
         if (!width || !length || !height || !quantity) return;
         onCalculate({
-          shape: "rectangle",
+          shape,
           width: Number(width),
           length: Number(length),
           height: Number(height),
@@ -57,7 +59,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
       case "cylinder":
         if (!diameter || !height || !quantity) return;
         onCalculate({
-          shape: "cylinder",
+          shape,
           diameter: Number(diameter),
           height: Number(height),
           quantity: Number(quantity),
@@ -66,7 +68,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
       case "cone":
         if (!topDiameter || !bottomDiameter || !height || !quantity) return;
         onCalculate({
-          shape: "cone",
+          shape,
           topDiameter: Number(topDiameter),
           bottomDiameter: Number(bottomDiameter),
           height: Number(height),
@@ -76,7 +78,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
       case "other":
         if (!surfaceArea || !height || !quantity) return;
         onCalculate({
-          shape: "other",
+          shape,
           surfaceArea: Number(surfaceArea),
           height: Number(height),
           quantity: Number(quantity),
@@ -85,74 +87,63 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
     }
   };
 
-  // Render input fields based on selected pot shape
+  // Conditionally render input fields based on shape type
   const renderShapeFields = () => {
     switch (shape) {
       case "rectangle":
         return (
           <>
-            <InputField label="가로 (cm)" value={width} onChange={setWidth} />
-            <InputField label="세로 (cm)" value={length} onChange={setLength} />
+            <InputField placeholder="가로 (cm)" value={width} onChange={setWidth} />
+            <InputField placeholder="세로 (cm)" value={length} onChange={setLength} />
           </>
         );
       case "cylinder":
         return (
-          <InputField
-            label="지름 (cm)"
-            value={diameter}
-            onChange={setDiameter}
-          />
+          <InputField placeholder="지름 (cm)" value={diameter} onChange={setDiameter} />
         );
       case "cone":
         return (
           <>
-            <InputField
-              label="윗지름 (cm)"
-              value={topDiameter}
-              onChange={setTopDiameter}
-            />
-            <InputField
-              label="아래지름 (cm)"
-              value={bottomDiameter}
-              onChange={setBottomDiameter}
-              className="mt-4"
-            />
+            <InputField placeholder="윗지름 (cm)" value={topDiameter} onChange={setTopDiameter} />
+            <InputField placeholder="아래지름 (cm)" value={bottomDiameter} onChange={setBottomDiameter} />
           </>
         );
       case "other":
         return (
-          <InputField
-            label="면적 (cm²)"
-            value={surfaceArea}
-            onChange={setSurfaceArea}
-          />
+          <InputField placeholder="면적 (cm²)" value={surfaceArea} onChange={setSurfaceArea} />
         );
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <label className="block font-bold text-gray-700 mb-4">
-        화분 모양을 골라주세요
-      </label>
+    <form onSubmit={handleSubmit} className="w-full space-y-4">
+      <h2 className="text-[#131712] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pt-5">
+        화분 모양 선택
+      </h2>
       <ShapeSelector shape={shape} options={shapes} onSelect={setShape} />
 
-      {renderShapeFields()}
+      <h2 className="text-[#131712] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pt-5">
+        화분 크기 입력
+      </h2>
 
-      <InputField
-        label="높이 (cm)"
-        value={height}
-        onChange={setHeight}
-        className="mt-4"
-      />
-      <InputField label="화분 개수" value={quantity} onChange={setQuantity} />
+      <div className="flex flex-col gap-4 px-4">
+        {renderShapeFields()}
+        <InputField placeholder="높이 (cm)" value={height} onChange={setHeight} />
+        <InputField placeholder="화분 개수" value={quantity} onChange={setQuantity} />
+      </div>
 
-      <button
-        type="submit"
-        className="bg-green-600 text-white font-bold p-2 mt-2 mb-4 w-full rounded-md"
-      >
-        계산하기
-      </button>
+      <div className="flex px-4 py-3 justify-center">
+        <button
+          type="submit"
+          className="
+          flex items-center justify-center h-10 px-4
+          mx-auto rounded-full
+          bg-[#50d22c] text-[#131712] text-sm font-bold
+          cursor-pointer"
+        >
+          계산하기
+        </button>
+      </div>
     </form>
   );
 };

@@ -8,93 +8,89 @@
  * - Additional gravel suggestion for drainage
  */
 
-import { getMixedBreakdown, getOnly8LBreakdown } from "../utils/breakdown";
 import ProductCard from "./ProductCard";
+import { getRecommendedBreakdowns } from "../utils/breakdown";
 
 type ResultBoxProps = {
   volume: number;
 };
 
-const ResultBox: React.FC<ResultBoxProps> = ({ volume }) => {
-  const mixed = getMixedBreakdown(volume);
-  const only8L = getOnly8LBreakdown(volume);
+const ResultBox = ({ volume }: ResultBoxProps) => {
+  const { primary, note } = getRecommendedBreakdowns(volume);
 
   return (
-    <div className="my-4 p-4 bg-amber-50 rounded-2xl w-full max-w-md text-gray-800 space-y-4">
-      <h2 className="font-bold">계산 결과</h2>
+    <div className="w-full px-4 pt-6 space-y-4">
+      <p className="text-[#131712] text-base font-normal">
+        화분의 약 80%만 흙으로 채운다고 가정했어요.
+      </p>
+      <h2 className="text-[#131712] text-xl font-bold leading-tight">
+        필요한 흙 용량
+      </h2>
+      <h3 className="text-[#131712] text-2xl font-bold leading-tight">
+        {volume} 리터
+      </h3>
 
-      <div className="flex justify-between mb-1">
-        <span className="font-bold">필요한 흙 용량:</span>
-        <span className="font-bold">{volume}리터</span>
-      </div>
-
-      <p className="text-base text-gray-600">
-        🪴 화분의 80%만 흙으로 채운다고 가정했어요.
+      <p className="text-[#131712] text-base">
+        이렇게 구매해 보세요.
       </p>
 
-      {/* Recommendation #1: Mixed 20L + 8L */}
-      <div className="p-4 rounded-xl border border-gray-200 bg-white shadow-sm">
-        <p className="mb-1">추천1: 가성비 대용량 제품</p>
-        <p className="font-bold text-green-800">✅ {mixed}</p>
-        <div className="flex justify-center space-x-4 mt-4">
-          <ProductCard
-            imageSrc="/images/soil_20l.webp"
-            alt="20L 흙"
-            href="https://smartstore.naver.com/changbitfarm/products/6363814423"
-          />
-          {mixed.includes("8리터") && (
-            <ProductCard
-              imageSrc="/images/soil_8l.webp"
-              alt="8L 흙"
-              href="https://smartstore.naver.com/changbitfarm/products/6364451019"
-            />
+      {primary.map((rec, idx) => (
+        <div key={`primary-${idx}`}>
+          {idx > 0 && (
+            <div className="text-gray-500 my-2 text-base">
+              - 또는 -
+            </div>
           )}
+          <p className="text-[#131712] text-lg font-bold">
+            {primary.length > 1 ? `👉 ${rec}` : `✅ ${rec}`}
+          </p>
         </div>
+      ))}
+
+      {note.length > 0 &&
+        note.map((rec, idx) => (
+          <div key={`note-${idx}`}>
+            <div className=" text-gray-500 my-2 text-base">
+              - 또는 -
+            </div>
+            <p className="text-[#131712] text-lg font-bold">
+              👉 {rec}
+            </p>
+          </div>
+        ))}
+
+      <div className="grid grid-cols-1 gap-3 mt-6">
+        <ProductCard
+          imageSrc="/images/soil_20l.webp"
+          title="대용량 분갈이흙"
+          subtitle="20L 포장"
+          href="https://smartstore.naver.com/changbitfarm/products/6363814423"
+        />
+        <ProductCard
+          imageSrc="/images/soil_8l.webp"
+          title="소포장 분갈이흙"
+          subtitle="8L 포장"
+          href="https://smartstore.naver.com/changbitfarm/products/6364451019"
+        />
       </div>
 
-      {/* Separator */}
-      <div className="flex items-center my-6">
-        <div className="flex-grow h-px bg-gray-300"></div>
-        <span className="mx-4 text-gray-500">또는</span>
-        <div className="flex-grow h-px bg-gray-300"></div>
-      </div>
+      <p className="text-[#131712] text-base pt-6">
+        화분 바닥에 자갈을 깔아주면 물이 잘 빠져 좋아요.
+      </p>
 
-      {/* Recommendation #2: 8L only */}
-      <div className="p-4 rounded-xl border border-gray-200 bg-white shadow-sm">
-        <p className="mb-1">추천2: 최고급 소포장 제품</p>
-        <p className="font-bold text-green-800">✅ {only8L}</p>
-        <div className="flex flex-col items-center space-y-1 mt-4">
-          <ProductCard
-            imageSrc="/images/soil_8l.webp"
-            alt="8L 흙"
-            href="https://smartstore.naver.com/changbitfarm/products/6364451019"
-          />
-        </div>
-      </div>
-
-      {/* Gravel suggestion */}
-      <div className="mt-8">
-        <p className="font-bold">👉 화분 바닥에 자갈을 약간 깔아주세요.</p>
-        <p className="text-base text-gray-600">
-          배수에 도움이 되어 뿌리가 썩는 걸 막아줘요.
-        </p>
-      </div>
-      
-      {/* Gravel product links */}
-      <div className="p-4 rounded-xl border border-gray-200 bg-white shadow-sm">
-        <p className="font-bold text-green-800">세척 마사토</p>
-        <div className="flex justify-center space-x-4 mt-4">
-          <ProductCard
-            imageSrc="/images/masato_1.webp"
-            alt="20L 흙"
-            href="https://smartstore.naver.com/changbitfarm/products/6395355955"
-          />
-          <ProductCard
-            imageSrc="/images/masato_3.webp"
-            alt="8L 흙"
-            href="https://smartstore.naver.com/changbitfarm/products/8759902556"
-          />
-        </div>
+      <div className="grid grid-cols-2 gap-3">
+        <ProductCard
+          imageSrc="/images/masato_1.webp"
+          title="세척 마사토"
+          subtitle="2kg 포장"
+          href="https://smartstore.naver.com/changbitfarm/products/6395355955"
+        />
+        <ProductCard
+          imageSrc="/images/masato_3.webp"
+          title="세척 마사토"
+          subtitle="6kg 포장"
+          href="https://smartstore.naver.com/changbitfarm/products/8759902556"
+        />
       </div>
     </div>
   );

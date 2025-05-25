@@ -2,11 +2,12 @@
  * App.tsx
  *
  * Main application component.
- * Contains the layout structure and integrates:
- * - Header (logo + title)
- * - InputForm (user input for volume calculation)
- * - ResultBox (recommendation results shown after calculation)
- * - Footer (store link + copyright)
+ * Renders the overall layout and integrates:
+ * - Header: logo, sticky 
+ * - IntroBanner: visual banner with description
+ * - InputForm: user input for calculating required soil volume
+ * - ResultBox: shows volume result and product recommendations
+ * - Footer: external store link and copyright
  */
 
 import { useState } from "react";
@@ -16,6 +17,7 @@ import ResultBox from "./components/ResultBox";
 import Footer from "./components/Footer";
 import { calculateSoilVolume } from "./utils/calculator";
 import type { InputData, ResultData } from "./types";
+import IntroBanner from "./components/IntroBanner"; 
 
 function App() {
   // App state: result holds calculated volume data (or null if not yet calculated)
@@ -34,6 +36,7 @@ function App() {
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="w-full max-w-md mb-4">
         <Header />
+        <IntroBanner />
         <InputForm onCalculate={handleCalculate} />
         {result && <ResultBox {...result} />}
         <Footer />

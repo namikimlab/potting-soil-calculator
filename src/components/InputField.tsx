@@ -6,24 +6,20 @@
  */
 
 type InputFieldProps = {
-  /** Label text displayed above the input field */
-  label: string;
-  /** Current value of the input field (controlled) */
+  placeholder: string;
   value: string;
-  /** Handler to update the input field value */
   onChange: (value: string) => void;
-  /** Optional: additional class names for outer wrapper */
   className?: string;
 };
 
-const InputField = ({ label, value, onChange, className = "" }: InputFieldProps) => (
-  <div className={className}>
-    <label className="block font-bold text-gray-700 mb-1">{label}</label>
+const InputField = ({ placeholder, value, onChange, className = "" }: InputFieldProps) => (
+  <div className={`flex flex-col min-w-40 flex-1 ${className}`}>
     <input
       type="number"
+      placeholder={placeholder}
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
+      className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#131712] focus:outline-0 focus:ring-0 border-none bg-[#f1f4f1] focus:border-none h-14 placeholder:text-[#6d8566] p-4 text-base font-normal leading-normal"
       required
     />
   </div>
