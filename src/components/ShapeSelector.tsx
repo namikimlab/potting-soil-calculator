@@ -35,7 +35,7 @@ const ShapeSelector = ({ shape, options, onSelect }: ShapeSelectorProps) => (
           }`}
           style={{ backgroundImage: `url(${option.icon})` }}
         ></div>
-        <p className="text-[#131712] text-base font-medium leading-normal text-center">
+        <p className="text-[#131712] text-lg font-medium leading-normal text-center">
           {option.label}
         </p>
       </div>

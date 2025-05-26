@@ -26,7 +26,7 @@ const IntroBanner = () => (
     <h2 className="text-[#131712] text-2xl text-center font-bold leading-tight px-4 pb-3 pt-5">
       분갈이 흙 계산기
     </h2>
-    <p className="text-[#131712] text-base text-center pb-3 pt-1 px-4 ">
+    <p className="text-[#131712] text-lg text-center pb-3 pt-1 px-4 ">
       분갈이용 흙은 얼마나 사야 할까요?
       <br />
       화분 크기에 딱 맞는 흙 양을 쉽게 계산해보세요.

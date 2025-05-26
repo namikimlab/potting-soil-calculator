@@ -117,12 +117,12 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
 
   return (
     <form onSubmit={handleSubmit} className="w-full space-y-4">
-      <h2 className="text-[#131712] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pt-5">
+      <h2 className="text-[#131712] text-xl font-bold leading-tight tracking-[-0.015em] px-4 pt-5">
         화분 모양 선택
       </h2>
       <ShapeSelector shape={shape} options={shapes} onSelect={setShape} />
 
-      <h2 className="text-[#131712] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pt-5">
+      <h2 className="text-[#131712] text-xl font-bold leading-tight tracking-[-0.015em] px-4 pt-5">
         화분 크기 입력
       </h2>
 
@@ -138,7 +138,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
           className="
           flex items-center justify-center h-10 px-4
           mx-auto rounded-full
-          bg-[#50d22c] text-[#131712] text-sm font-bold
+          bg-[#50d22c] text-[#131712] text-lg font-bold
           cursor-pointer"
         >
           계산하기

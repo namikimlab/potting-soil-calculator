@@ -19,10 +19,10 @@ const ProductCard = ({ imageSrc, title, subtitle, href }: ProductCardProps) => (
       style={{ backgroundImage: `url(${imageSrc})` }}
     ></div>
     <div>
-      <p className="text-[#131712] text-base font-medium">
+      <p className="text-[#131712] text-lg font-medium">
         {title}
       </p>
-      <p className="text-[#6d8566] text-sm font-normal">
+      <p className="text-[#6d8566] text-base font-normal">
         {subtitle}
       </p>
     </div>
@@ -33,7 +33,7 @@ const ProductCard = ({ imageSrc, title, subtitle, href }: ProductCardProps) => (
       className="
         flex items-center justify-center
         w-full max-w-[480px] px-4 h-10 rounded-full
-      bg-[#50d22c] text-[#131712] text-sm font-bold
+      bg-[#50d22c] text-[#131712] text-lg font-bold
         cursor-pointer"
     >
       구매하기
