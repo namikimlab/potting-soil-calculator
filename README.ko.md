@@ -14,15 +14,16 @@
 ## 왜 이 프로젝트를 만들었나요?
 초보 가드너를 위한 실용적인 도구로 이 계산기를 만들었습니다. UX부터 배포와 SEO까지 전체 개발을 직접 주도한 프론트엔드 제품이라는 점을 보여주기 위해 제작했습니다.
 
-- 사용자 입력값에 대한 철저한 검증
+- 사용자 입력값에 대한 검증
 - 도메인 기반 로직 (필요량 계산, 흙 부피 추정)
 - 최적의 제품 조합 추천 알고리즘
 - 모바일 최적화, SEO, 분석 태깅까지 실전 대응
 
 <p align="center">
-  <img src="screenshot_1.png" alt="Screenshot 1" width="30%" />
-  <img src="screenshot_2.png" alt="Screenshot 2" width="30%" />
-  <img src="screenshot_3.png" alt="Screenshot 3" width="30%" />
+  <img src="screenshot_1.png" alt="Screenshot 1" width="22%" />
+  <img src="screenshot_2.png" alt="Screenshot 2" width="22%" />
+  <img src="screenshot_3.png" alt="Screenshot 3" width="22%" />
+  <img src="screenshot_4.png" alt="Screenshot 3" width="22%" />
 </p>
 
 ### 👉 [바로 사용해보기](https://soilcalc.changbitfarm.com)

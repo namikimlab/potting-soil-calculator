@@ -20,9 +20,10 @@ I created this calculator as a practical tool for beginner gardeners and to show
 - mobile-first design, SEO, analytics ready
 
 <p align="center">
-  <img src="screenshot_1.png" alt="Screenshot 1" width="30%" />
-  <img src="screenshot_2.png" alt="Screenshot 2" width="30%" />
-  <img src="screenshot_3.png" alt="Screenshot 3" width="30%" />
+  <img src="screenshot_1.png" alt="Screenshot 1" width="22%" />
+  <img src="screenshot_2.png" alt="Screenshot 2" width="22%" />
+  <img src="screenshot_3.png" alt="Screenshot 3" width="22%" />
+  <img src="screenshot_4.png" alt="Screenshot 3" width="22%" />
 </p>
 
 ### 👉 [Try it Live](https://soilcalc.changbitfarm.com)
