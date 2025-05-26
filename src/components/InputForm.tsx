@@ -136,7 +136,7 @@ const InputForm: React.FC<InputFormProps> = ({ onCalculate }) => {
         <button
           type="submit"
           className="
-          flex items-center justify-center h-10 px-4
+          flex items-center justify-center h-12 px-6
           mx-auto rounded-full
           bg-[#50d22c] text-[#131712] text-lg font-bold
           cursor-pointer"
