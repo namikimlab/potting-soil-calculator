@@ -8,7 +8,8 @@
 import logo from "../assets/logo.webp";
 
 const Header = () => (
-  <header className="sticky top-0 z-50 bg-white pt-4 pb-2 flex flex-col items-center justify-center shadow-sm">
+  <header className="sticky top-0 z-50 bg-white shadow-none 
+  pt-4 pb-2 flex flex-col items-center justify-center">
     <a
       href="https://smartstore.naver.com/changbitfarm"
       target="_blank"
