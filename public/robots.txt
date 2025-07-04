@@ -3,3 +3,5 @@ Allow: /
 Disallow: /api/
 
 Sitemap: https://soilcalc.changbitfarm.com/sitemap.xml
+
+#DaumWebMasterTool:514a32fc99a393be51812e9d877cda57216a5ca48630800af7a784cd2751b849:XQ/3yG9IFay4jb52EPs0UQ==
